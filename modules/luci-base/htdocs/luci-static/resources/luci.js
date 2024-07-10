@@ -1377,6 +1377,10 @@
 			else if (this.elem(children)) {
 				return node.appendChild(children);
 			}
+			else if (typeof(children) === 'string') {
+				node.appendChild(document.createTextNode(children));
+				return node.lastChild;
+			}
 			else if (children !== null && children !== undefined) {
 				node.innerHTML = '' + children;
 				return node.lastChild;
